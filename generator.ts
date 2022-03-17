@@ -59,7 +59,7 @@ const generateRandomPosts = (startingId: number) => {
 
 
 for (let i=0;i<10;i++) {
-    fs.writeFile(`${i+1}.json`, JSON.stringify(generateRandomPosts(10*(i) + 1)), () => {
+    fs.writeFile(`${i+1}`, JSON.stringify(generateRandomPosts(10*(i) + 1)), () => {
         console.log('write file complete');
     });
 }
