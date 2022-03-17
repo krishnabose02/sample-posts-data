@@ -49,7 +49,8 @@ const generateRandomPosts = (startingId: number) => {
             name: randomUser.name,
             profilePic: randomUser.profilePicUrl,
             imageUrl: randomPost,
-            createdAt: new Date(Date.now() - getRandomInt(86400000*30))
+            createdAt: new Date(Date.now() - getRandomInt(86400000*30)),
+            likes: parseInt(`${Math.random()*1000}`, 10)
         });
         count++;
         id++;
@@ -59,7 +60,7 @@ const generateRandomPosts = (startingId: number) => {
 
 
 for (let i=0;i<10;i++) {
-    fs.writeFile(`${i+1}`, JSON.stringify(generateRandomPosts(10*(i) + 1)), () => {
+    fs.writeFile(`posts/${i+1}`, JSON.stringify(generateRandomPosts(10*(i) + 1)), () => {
         console.log('write file complete');
     });
 }
